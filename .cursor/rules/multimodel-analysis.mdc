@@ -1,0 +1,24 @@
+---
+description: Мультимодельный анализ — только генерировать отчёты, не перезаписывать карточки
+globs: docs/reports/*.md, docs/hypotheses/*.md, .cursor/agents/analyzer-*.md
+alwaysApply: false
+---
+
+# Мультимодельный анализ гипотез
+
+При анализе гипотез analyzer-* subagents и любой агент, пишущий в docs/reports/:
+
+## Строго ЗАПРЕЩЕНО изменять
+- `docs/hypotheses/` — карточки гипотез
+- `docs/concepts/` — определения и концепции
+- `docs/proofs/` — доказательства
+- `docs/insights/` — инсайты
+- `docs/dialogues/` — диалоги
+- `docs/domains/` — индексы доменов
+
+## Разрешено ТОЛЬКО
+- **Читать** все вышеперечисленные папки
+- **Создавать/перезаписывать** только `docs/reports/H-XXX_{своё_имя_модели}.md` — свой отчёт
+
+## Пример
+Analyzer-claude читает H-001, C-001, C-002, P-001, I-001 и пишет **только** в `docs/reports/H-001_claude.md`. Никаких правок в hypotheses/, concepts/, proofs/, insights/.
